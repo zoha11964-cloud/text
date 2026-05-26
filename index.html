@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Text Tools | Word Counter & Text Converter Online</title>
+    <meta name="description" content="Free online text tools including word counter, character counter, case converter and text cleaner. Simple tools for all your text editing needs.">
+    <meta name="keywords" content="text tools, word counter, character counter, case converter, text cleaner, remove spaces, uppercase lowercase converter">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://text.calcfincepro.com/">
+
+    <!-- GA4 统计代码 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-70W3ZXHHPY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-70W3ZXHHPY');
+    </script>
+
+    <!-- AdSense 代码 -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5761005665703697" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #121212;
+            --text-color: #e5e5e5;
+            --card-bg: #1e1e1e;
+            --border-color: #333;
+            --tag-bg: #252b38;
+            --tag-text: #8cb4f0;
+            --header-border: #333;
+            --hover-bg: #2a3444;
+            --primary: #8cb4f0;
+        }
+
+        .light-mode {
+            --bg-color: #f5f7fa;
+            --text-color: #333;
+            --card-bg: #ffffff;
+            --border-color: #eee;
+            --tag-bg: #e9f0fb;
+            --tag-text: #2c5282;
+            --header-border: #eee;
+            --hover-bg: #f0f7ff;
+            --primary: #2c5282;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .page-wrap {
+            display: flex;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* 隐藏全部广告位 */
+        .sidebar-ad {
+            display: none !important;
+        }
+        .ad-in-content {
+            display: none !important;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 20px 0;
+        }
+
+        .theme-switch {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 999;
+        }
+
+        #toggleBtn {
+            padding: 8px 14px;
+            border: none;
+            border-radius: 24px;
+            cursor: pointer;
+            font-size: 14px;
+            background: var(--card-bg);
+            color: var(--text-color);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .title-wrap {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .title-wrap i {
+            font-size: 2.4rem;
+            color: #8cb4f0;
+        }
+
+        .light-mode .title-wrap i {
+            color: #2c5282;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+        }
+
+        /* Smart Tools 导航栏 */
+        .cross-tools-bar {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-color);
+            padding: 10px 12px;
+            margin: 0 auto 20px;
+            max-width: 100%;
+        }
+        .tools-title {
+            font-size: 14px;
+            color: var(--primary);
+            background-color: rgba(140, 180, 240, 0.1);
+            padding: 4px 0;
+            margin-bottom: 8px;
+            text-align: center;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            border-radius: 4px;
+        }
+        .tools-title i {
+            color: var(--primary);
+            font-size: 13px;
+        }
+        .cross-tools-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+        }
+        .cross-tool-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            padding: 5px 4px;
+            background-color: rgba(140, 180, 240, 0.08);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 12px;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+        .cross-tool-card:hover {
+            background-color: rgba(140, 180, 240, 0.2);
+            color: var(--primary);
+            transform: translateY(-1px);
+        }
+        .cross-tool-icon {
+            font-size: 15px;
+            color: var(--primary);
+        }
+
+        /* 功能区块通用样式 */
+        .tool-category {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .category-title {
+            font-size: 1.3rem;
+            color: #8cb4f0;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--header-border);
+            text-align: center;
+        }
+
+        .light-mode .category-title {
+            color: #2c5282;
+        }
+
+        .tool-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tool-item {
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            text-align: center;
+            transition: 0.2s ease;
+        }
+
+        .tool-item:hover {
+            background: var(--hover-bg);
+            border-color: #b3d4f5;
+        }
+
+        .tool-item a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .tool-item p {
+            font-size: 0.85rem;
+            color: var(--text-color);
+            opacity: 0.7;
+            margin-top: 5px;
+        }
+
+        /* 底部合规板块 */
+        .legal-section {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-size: 0.9rem;
+        }
+
+        .legal-section h3 {
+            font-size: 1.1rem;
+            margin: 15px 0 8px;
+            color: #8cb4f0;
+        }
+
+        .light-mode .legal-section h3 {
+            color: #2c5282;
+        }
+
+        .contact-link {
+            color: #8cb4f0;
+            text-decoration: none;
+        }
+
+        .light-mode .contact-link {
+            color: #2c5282;
+        }
+
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+
+        /* SEO 标签云 */
+        .seo-tags {
+            margin: 30px 0;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .seo-tags span {
+            display: inline-block;
+            background: var(--tag-bg);
+            color: var(--tag-text);
+            padding: 6px 12px;
+            margin: 5px 4px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            color: var(--text-color);
+            opacity: 0.6;
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 20px;
+        }
+
+        .footer-links a {
+            color: var(--text-color);
+            margin: 0 8px;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: #8cb4f0;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            .theme-switch {
+                top: 10px;
+                left: 10px;
+            }
+            .cross-tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="theme-switch">
+        <button id="toggleBtn">
+            <i class="fas fa-sun"></i> Light Mode
+        </button>
+    </div>
+
+    <div class="page-wrap">
+        <aside class="sidebar-ad left">
+            <div class="ad-box">
+                <p>Google Ads Left Sidebar</p>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header>
+                <div class="title-wrap">
+                    <i class="fas fa-font"></i>
+                    <h1>Free Text Tools</h1>
+                </div>
+            </header>
+
+            <!-- Smart Tools 导航（目前先填已有3个，后续统一补全剩余2个） -->
+            <section class="cross-tools-bar">
+                <div class="tools-title">
+                    <i class="fa fa-wrench"></i>
+                    Smart Tools
+                </div>
+                <div class="cross-tools-grid">
+                    <a href="https://calcfincepro.com" class="cross-tool-card">
+                        <i class="fa fa-line-chart cross-tool-icon"></i>
+                        <span>Finance Calculator</span>
+                    </a>
+                    <a href="https://compress.calcfincepro.com" class="cross-tool-card">
+                        <i class="fa fa-compress cross-tool-icon"></i>
+                        <span>Image Compressor</span>
+                    </a>
+                    <a href="https://pdf.calcfincepro.com" class="cross-tool-card">
+                        <i class="fa fa-file-pdf cross-tool-icon"></i>
+                        <span>PDF Tools</span>
+                    </a>
+                    <a href="https://text.calcfincepro.com" class="cross-tool-card">
+                        <i class="fa fa-font cross-tool-icon"></i>
+                        <span>Text Tools</span>
+                    </a>
+                    <div class="cross-tool-card"></div>
+                </div>
+            </section>
+
+            <div class="ad-in-content">
+                <p>Google Ads Top (In Content)</p>
+            </div>
+
+            <!-- 核心文本工具区 -->
+            <div class="tool-category">
+                <h2 class="category-title">All Text Tools</h2>
+                <div class="tool-list">
+                    <div class="tool-item"><a href="https://wordcounter.net/" target="_blank">Word Counter</a><p>Count words & characters</p></div>
+                    <div class="tool-item"><a href="https://wordcounter.net/case-converter" target="_blank">Case Converter</a><p>Upper / Lower case</p></div>
+                    <div class="tool-item"><a href="https://textcleaner.net/" target="_blank">Text Cleaner</a><p>Remove extra spaces</p></div>
+                    <div class="tool-item"><a href="https://textfixer.com/remove-line-breaks.php" target="_blank">Remove Line Breaks</a><p>Clear empty lines</p></div>
+                    <div class="tool-item"><a href="https://capitalizemytitle.com/" target="_blank">Title Case</a><p>Capitalize article title</p></div>
+                    <div class="tool-item"><a href="https://www.textcompare.org/" target="_blank">Text Compare</a><p>Check text differences</p></div>
+                </div>
+            </div>
+
+            <div class="ad-in-content">
+                <p>Google Ads Middle (Between Categories)</p>
+            </div>
+
+            <!-- 其他常用工具 -->
+            <div class="tool-category">
+                <h2 class="category-title">Other Useful Tools</h2>
+                <div class="tool-list">
+                    <div class="tool-item"><a href="https://www.canva.com/" target="_blank">Canva</a><p>Graphic Design Tool</p></div>
+                    <div class="tool-item"><a href="https://prisma-app.com/" target="_blank">Prisma</a><p>Photo Art Filter</p></div>
+                    <div class="tool-item"><a href="https://www.tunein.com/" target="_blank">Tune</a><p>Media Adjust Tool</p></div>
+                    <div class="tool-item"><a href="https://wordcounter.net/" target="_blank">More Tools</a><p>Popular Online Apps</p></div>
+                </div>
+            </div>
+
+            <div class="ad-in-content">
+                <p>Google Ads Bottom (Before Footer)</p>
+            </div>
+
+            <!-- 底部合规说明 -->
+            <div class="legal-section" id="about">
+                <h3>About Us</h3>
+                <p>Free Text Tools offers a full set of easy-to-use online text utilities for students, writers and office workers. Process and edit your text content quickly directly in the browser, no installation required.</p>
+            </div>
+
+            <div class="legal-section" id="contact">
+                <h3>Contact Us</h3>
+                <p>For business inquiries or feedback, please <a href="mailto:zoha11964@gmail.com" class="contact-link">click here to send us a message</a>.</p>
+                <p>We do not provide technical support for any third-party tools listed on this website.</p>
+            </div>
+
+            <div class="legal-section" id="privacy">
+                <h3>Privacy Policy</h3>
+                <p>We use Google AdSense and cookies to serve personalized ads. We do not collect personal data unless voluntarily provided via contact form. By using this site, you consent to the use of cookies as described in Google’s privacy policy.</p>
+            </div>
+
+            <div class="legal-section" id="terms">
+                <h3>Terms of Service</h3>
+                <p>This website is for informational purposes only. All listed tools belong to their respective owners. We are not affiliated with any third-party service. Use of external links is at your own risk.</p>
+            </div>
+
+            <div class="legal-section" id="disclaimer">
+                <h3>Disclaimer</h3>
+                <p>We do not guarantee the accuracy, safety, or quality of any third-party tools listed. We are not liable for any loss or damage resulting from the use of external websites or services.</p>
+            </div>
+
+            <!-- SEO 关键词标签 -->
+            <div class="seo-tags">
+                <span>text tools</span><span>word counter</span><span>character counter</span><span>case converter</span><span>text cleaner</span>
+                <span>remove spaces</span><span>uppercase converter</span><span>lowercase converter</span><span>title case</span><span>text compare</span>
+            </div>
+
+            <footer>
+                <div class="footer-links">
+                    <a href="#about">About Us</a>
+                    <a href="#contact">Contact Us</a>
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Service</a>
+                    <a href="#disclaimer">Disclaimer</a>
+                </div>
+                <p>&copy; 2026 Free Text Tools. All Rights Reserved.</p>
+            </footer>
+        </main>
+
+        <aside class="sidebar-ad right">
+            <div class="ad-box">
+                <p>Google Ads Right Sidebar</p>
+            </div>
+        </aside>
+    </div>
+
+    <!-- 明暗模式切换脚本 -->
+    <script>
+        const toggleBtn = document.getElementById('toggleBtn');
+        const body = document.body;
+
+        toggleBtn.addEventListener('click', function () {
+            body.classList.toggle('light-mode');
+            if (body.classList.contains('light-mode')) {
+                this.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+            } else {
+                this.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+            }
+        });
+    </script>
+</body>
+</html>
